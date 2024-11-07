@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BugReversalApp.Models.Entities.Request>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Made Requests</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1 class="text-center">Made Requests</h1>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center">No requests have been made.</div>
+    }
+    else
+    {
+        <ul class="list-group mt-4">
+            @foreach (var request in Model)
+            {
+                <li class="list-group-item">
+                    <a href="~/request/ReviewRequest/@request.Id" class="btn btn-link">
+                        Transaction ID: @request.TransactionId
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+</body>
+</html>

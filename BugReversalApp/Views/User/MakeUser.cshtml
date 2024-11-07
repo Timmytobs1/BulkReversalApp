@@ -1,0 +1,57 @@
+﻿@model BugReversalApp.Models.Entities.User
+@{
+    ViewData["Title"] = "Register User"; // Set the title for the page
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Register User</h1>
+        <form asp-controller="User" asp-action="MakeUser" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div> <!-- Display validation errors -->
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Email" type="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Privilege"></label>
+                    <select asp-for="Privilege" class="form-select">
+                        <option value="" disabled selected>Select Privilege</option>
+                        <option value="1">Maker</option>
+                        <option value="2">Checker</option>
+                    </select>
+                    <span asp-validation-for="Privilege" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Password" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary mt-3">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

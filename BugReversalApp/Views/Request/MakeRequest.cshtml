@@ -1,0 +1,41 @@
+﻿@model BugReversalApp.Models.RequestViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Request</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Make Request</h1>
+        <form asp-controller="Request" asp-action="MakeRequest" method="post">
+            <div class="Transaction-form">
+                <h4 class="Request-title">Request(s)</h4>
+                <div id="appender">
+                    <div class="form-group">
+                        <input type="text" name="TransactionId[0]" placeholder="Transaction ID" class="form-control mb-2" required>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-outline-primary" type="button" onclick="Append()"> + Add Another Transaction ID</button>
+                </div>
+                <div class="col-12 mt-3">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <script>
+            var tCount = 1;
+            function Append() {
+                let appender = document.getElementById("appender");
+                const newField = document.createElement("div");
+                newField.classList.add("form-group");
+                newField.innerHTML = `<input type="text" name="TransactionId[${tCount}]" placeholder="Transaction ID" class="form-control mb-2" required>`;
+                appender.appendChild(newField);
+                tCount++; // Increment the count after appending
+            }
+        </script>
+    </div>
+</body>
+</html>

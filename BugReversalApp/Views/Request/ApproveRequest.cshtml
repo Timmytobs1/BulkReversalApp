@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BugReversalApp.Models.Entities.Request>;
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1 style="text-align:center">Approve Requests</h1>
+    @foreach (var request in Model)
+    {
+        <h1>@request.TransactionId</h1>
+        @*
+    @request.user.FirstName *@
+    }
+</body>
+</html>
+
+
+
+@* @model BugReversalApp.Models.Entities.Request
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Approve Request</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Approve Request</h4>
+            <p><strong>Request ID:</strong> @Model.Id</p>
+            <p><strong>Transaction ID:</strong> @Model.TransactionId</p>
+            <p><strong>User ID:</strong> @Model.UserId</p>
+
+            <form asp-action="ApproveRequest" asp-controller="Request" method="post">
+                <input type="hidden" name="RequestId" value="@Model.Id" />
+
+                <div class="form-check mb-3">
+                    <input type="checkbox" name="Approved" value="true" id="approvedCheckbox" class="form-check-input" />
+                    <label for="approvedCheckbox" class="form-check-label">Approve this request</label>
+                </div>
+
+                <small class="text-muted">If unchecked, the request will be declined.</small><br />
+
+                <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html> *@
