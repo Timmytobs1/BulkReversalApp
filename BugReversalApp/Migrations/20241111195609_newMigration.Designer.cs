@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BugReversalApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241106120108_thirdMigration")]
-    partial class thirdMigration
+    [Migration("20241111195609_newMigration")]
+    partial class newMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

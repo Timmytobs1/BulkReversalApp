@@ -19,12 +19,11 @@ namespace BugReversalApp.Models.Entities
         [Required, Column(TypeName = "decimal(18,2)")]
         public decimal Amount { get; set; }
 
-        [Required]
+        [Required] 
         public TransactionType Type { get; set; }
 
         [Required]
         public ReversalTransactionStatus Status { get; set; } = ReversalTransactionStatus.Pending;
-
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }
